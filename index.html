@@ -47,27 +47,27 @@
       </button>
       <button class="nav-btn" data-target="page-8" onclick="goToPage(8)">
         <span class="nav-num">08</span>
-        <span class="nav-label">Coming Soon</span>
+        <span class="nav-label">Repeat After Me</span>
       </button>
       <button class="nav-btn" data-target="page-9" onclick="goToPage(9)">
         <span class="nav-num">09</span>
-        <span class="nav-label">Coming Soon</span>
+        <span class="nav-label">Loop Practice</span>
       </button>
       <button class="nav-btn" data-target="page-10" onclick="goToPage(10)">
         <span class="nav-num">10</span>
-        <span class="nav-label">Coming Soon</span>
+        <span class="nav-label">Pattern Power</span>
       </button>
       <button class="nav-btn" data-target="page-11" onclick="goToPage(11)">
         <span class="nav-num">11</span>
-        <span class="nav-label">Coming Soon</span>
+        <span class="nav-label">Spot the Bug</span>
       </button>
       <button class="nav-btn" data-target="page-12" onclick="goToPage(12)">
         <span class="nav-num">12</span>
-        <span class="nav-label">Coming Soon</span>
+        <span class="nav-label">More Bugs to Squash</span>
       </button>
       <button class="nav-btn" data-target="page-13" onclick="goToPage(13)">
         <span class="nav-num">13</span>
-        <span class="nav-label">Coming Soon</span>
+        <span class="nav-label">Computer Bugs</span>
       </button>
       <button class="nav-btn" data-target="page-14" onclick="goToPage(14)">
         <span class="nav-num">14</span>
@@ -891,8 +891,102 @@
     <!-- ==================== PAGE 8 ==================== -->
     <section class="page" id="page-8">
       <span class="badge">Code Thinker: Level 1</span>
-      <h1>Coming Soon</h1>
-      <p class="subtitle">Page 8 prompt pending.</p>
+      <h1>Repeat After Me</h1>
+      <p class="subtitle">Computers are good at doing the same thing over and over. We call this a LOOP.</p>
+
+      <!-- Example -->
+      <div class="compare-grid">
+        <div class="compare-card long">
+          <div class="compare-header">
+            <span class="compare-badge">✗ The Long Way</span>
+            <span class="compare-lines">5 lines</span>
+          </div>
+          <div class="compare-body">
+            <div class="line-item">Say "Hello"</div>
+            <div class="line-item">Say "Hello"</div>
+            <div class="line-item">Say "Hello"</div>
+            <div class="line-item">Say "Hello"</div>
+            <div class="line-item">Say "Hello"</div>
+          </div>
+        </div>
+
+        <div class="compare-vs">VS</div>
+
+        <div class="compare-card loop">
+          <div class="compare-header">
+            <span class="compare-badge ok">✓ The Loop Way</span>
+            <span class="compare-lines">2 lines</span>
+          </div>
+          <div class="compare-body code">
+            <div class="code-line"><span class="kw">REPEAT</span> 5 times:</div>
+            <div class="code-line indent">Say <span class="str">"Hello"</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Loop Demo -->
+      <div class="simulator-box" style="margin-bottom:1.5rem;">
+        <h3><span class="icon">⚡</span> Try the Loop Live</h3>
+        <div class="loop-controls">
+          <div class="loop-field">
+            <label>What to repeat?</label>
+            <input type="text" id="p8-repeatText" value="Hello" class="loop-input">
+          </div>
+          <div class="loop-field">
+            <label>How many times?</label>
+            <input type="number" id="p8-repeatNum" value="5" min="1" max="20" class="loop-input num">
+          </div>
+          <button class="btn btn-primary" onclick="p8_runLoop()" style="margin-top:1.4rem;">▶ Run Loop</button>
+        </div>
+        <div class="loop-output" id="p8-loopOutput">
+          <span class="loop-placeholder">Click Run to see the magic...</span>
+        </div>
+      </div>
+
+      <!-- Your Turn -->
+      <div class="form-section">
+        <h3><span class="icon">✏️</span> Your Turn: Write "Ha!" 8 times the long way</h3>
+        <div class="long-way-list">
+          <input type="text" class="long-way-input" value="Ha!" readonly>
+          <input type="text" class="long-way-input" value="Ha!" readonly>
+          <input type="text" class="long-way-input" value="Ha!" readonly>
+          <input type="text" class="long-way-input" value="Ha!" readonly>
+          <input type="text" class="long-way-input" value="Ha!" readonly>
+          <input type="text" class="long-way-input" value="Ha!" readonly>
+          <input type="text" class="long-way-input" value="Ha!" readonly>
+          <input type="text" class="long-way-input" value="Ha!" readonly>
+        </div>
+
+        <h3 style="margin-top:1.5rem;"><span class="icon">🔁</span> Now write it using a loop</h3>
+        <div class="loop-code-block">
+          <div class="code-line"><span class="kw">REPEAT</span> <input type="number" id="p8-haNum" class="inline-num" value="8" min="1"> times:</div>
+          <div class="code-line indent">Say <span class="str">"Ha!"</span></div>
+        </div>
+
+        <h3 style="margin-top:1.5rem;"><span class="icon">⏱️</span> Which was faster to write?</h3>
+        <div class="radio-group">
+          <label class="radio-item" onclick="p8_selectRadio(this)">
+            <input type="radio" name="p8-faster" value="long">
+            <span>Long way</span>
+          </label>
+          <label class="radio-item" onclick="p8_selectRadio(this)">
+            <input type="radio" name="p8-faster" value="loop">
+            <span>Loop</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Challenge -->
+      <div class="form-section challenge-box">
+        <h3><span class="icon">🏆</span> Challenge: A song has a chorus that repeats 3 times. Write it using a loop.</h3>
+        <div class="loop-code-block big">
+          <div class="code-line"><span class="kw">REPEAT</span> <input type="number" id="p8-chorusNum" class="inline-num" value="3" min="1"> times:</div>
+          <div class="code-line indent">
+            <textarea class="loop-textarea" id="p8-chorusText" rows="2" placeholder="Type the chorus here..."></textarea>
+          </div>
+        </div>
+      </div>
+
       <div class="page-nav">
         <button class="btn btn-secondary" onclick="goToPage(7)">← Prev</button>
         <button class="btn btn-primary" onclick="goToPage(9)">Next →</button>
@@ -902,8 +996,105 @@
     <!-- ==================== PAGE 9 ==================== -->
     <section class="page" id="page-9">
       <span class="badge">Code Thinker: Level 1</span>
-      <h1>Coming Soon</h1>
-      <p class="subtitle">Page 9 prompt pending.</p>
+      <h1>Loop Practice</h1>
+      <p class="subtitle">Fill in the blanks to make the loops work.</p>
+
+      <!-- Loop Exercises -->
+      <div class="form-section">
+        <div class="loop-exercises" id="p9-exercises">
+
+          <div class="loop-exercise" data-answer="10">
+            <div class="loop-ex-num">1</div>
+            <div class="loop-ex-body">
+              <div class="loop-ex-label">Count from 1 to 10:</div>
+              <div class="loop-code-fill">
+                <span class="kw">REPEAT</span> <input type="number" class="inline-num" data-q="1"> times:
+                <div class="indent"><span class="kw">Count</span> up by 1</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="loop-exercise" data-answer="6">
+            <div class="loop-ex-num">2</div>
+            <div class="loop-ex-body">
+              <div class="loop-ex-label">Draw 6 circles:</div>
+              <div class="loop-code-fill">
+                <span class="kw">REPEAT</span> <input type="number" class="inline-num" data-q="2"> times:
+                <div class="indent"><span class="kw">Draw</span> a circle</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="loop-exercise" data-answer="5">
+            <div class="loop-ex-num">3</div>
+            <div class="loop-ex-body">
+              <div class="loop-ex-label">Hop forward 5 times:</div>
+              <div class="loop-code-fill">
+                <span class="kw">REPEAT</span> <input type="number" class="inline-num" data-q="3"> times:
+                <div class="indent"><span class="kw">Hop</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="loop-exercise" data-answer="3">
+            <div class="loop-ex-num">4</div>
+            <div class="loop-ex-body">
+              <div class="loop-ex-label">Eat 3 bites of food:</div>
+              <div class="loop-code-fill">
+                <span class="kw">REPEAT</span> <input type="number" class="inline-num" data-q="4"> times:
+                <div class="indent"><span class="kw">Take</span> a bite</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="toolbar" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="p9_check()">✓ Check Answers</button>
+          <button class="btn btn-secondary" onclick="p9_reset()">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- Draw Your Own -->
+      <div class="form-section">
+        <h3><span class="icon">🎨</span> Draw Your Own Loop</h3>
+        <div class="input-row">
+          <label>I want to:</label>
+          <input type="text" id="p9-want" placeholder="e.g. Jump up and down">
+        </div>
+        <div class="loop-code-block">
+          <div class="code-line"><span class="kw">REPEAT</span> <input type="number" id="p9-ownNum" class="inline-num" placeholder="?"> times:</div>
+          <div class="code-line indent"><input type="text" id="p9-ownAction" class="code-input wide" placeholder="the action..."></div>
+        </div>
+      </div>
+
+      <!-- Nested Loop Challenge -->
+      <div class="form-section challenge-box">
+        <h3><span class="icon">🌀</span> Now Try This Tricky One: A loop inside a loop!</h3>
+        <div class="nested-loop-demo">
+          <div class="nested-code">
+            <div class="code-line"><span class="kw">REPEAT</span> 3 times:</div>
+            <div class="code-line indent"><span class="kw">REPEAT</span> 2 times:</div>
+            <div class="code-line indent2">👏 Clap your hands</div>
+          </div>
+          <div class="clap-visual" id="p9-clapVisual">
+            <div class="clap-row"><span class="clap">👏</span><span class="clap">👏</span></div>
+            <div class="clap-row"><span class="clap">👏</span><span class="clap">👏</span></div>
+            <div class="clap-row"><span class="clap">👏</span><span class="clap">👏</span></div>
+          </div>
+        </div>
+
+        <div class="input-row" style="margin-top:1rem;">
+          <label>How many claps total?</label>
+          <input type="number" id="p9-clapAnswer" class="inline-num" style="width:80px;" placeholder="?">
+        </div>
+
+        <h3 style="margin-top:1rem;"><span class="icon">📝</span> Show your work:</h3>
+        <div class="input-row">
+          <textarea id="p9-work" rows="3" placeholder="Explain how you figured it out..."></textarea>
+        </div>
+      </div>
+
       <div class="page-nav">
         <button class="btn btn-secondary" onclick="goToPage(8)">← Prev</button>
         <button class="btn btn-primary" onclick="goToPage(10)">Next →</button>
@@ -913,8 +1104,147 @@
     <!-- ==================== PAGE 10 ==================== -->
     <section class="page" id="page-10">
       <span class="badge">Code Thinker: Level 1</span>
-      <h1>Coming Soon</h1>
-      <p class="subtitle">Page 10 prompt pending.</p>
+      <h1>Pattern Power</h1>
+      <p class="subtitle">Loops help us spot and use patterns.</p>
+
+      <!-- Example -->
+      <div class="pattern-example">
+        <h3><span class="icon">🔍</span> Look at this pattern</h3>
+        <div class="pattern-display" id="p10-exampleDisplay">
+          <span class="pat-item">★</span>
+          <span class="pat-item">☆</span>
+          <span class="pat-item">★</span>
+          <span class="pat-item">☆</span>
+          <span class="pat-item">★</span>
+          <span class="pat-item">☆</span>
+        </div>
+        <div class="pattern-questions">
+          <div class="input-row">
+            <label>What repeats?</label>
+            <input type="text" value="★ then ☆" readonly class="locked">
+          </div>
+          <div class="input-row">
+            <label>How many times?</label>
+            <input type="text" value="3" readonly class="locked">
+          </div>
+          <div class="loop-code-block">
+            <div class="code-line"><span class="kw">REPEAT</span> 3 times:</div>
+            <div class="code-line indent">★ then ☆</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pattern Exercises -->
+      <div class="form-section">
+        <h3><span class="icon">✏️</span> Your Turn — Finish the Pattern</h3>
+        <div class="pattern-grid" id="p10-patterns">
+
+          <!-- Pattern 1 -->
+          <div class="pattern-card" data-repeat="▲ ▲ ■" data-times="4">
+            <div class="pattern-visual">
+              <span class="pat-shape">▲</span>
+              <span class="pat-shape">▲</span>
+              <span class="pat-shape">■</span>
+              <span class="pat-shape">▲</span>
+              <span class="pat-shape">▲</span>
+              <span class="pat-shape">■</span>
+              <span class="pat-shape">▲</span>
+              <span class="pat-shape">▲</span>
+              <span class="pat-shape">■</span>
+              <span class="pat-shape">▲</span>
+              <span class="pat-shape">▲</span>
+              <span class="pat-shape missing" id="p10-p1-missing">?</span>
+            </div>
+            <div class="pattern-work">
+              <div class="input-row compact">
+                <label>What repeats?</label>
+                <input type="text" class="pat-what" placeholder="e.g. ▲ ▲ ■">
+              </div>
+              <div class="loop-code-fill small">
+                <span class="kw">REPEAT</span> <input type="number" class="inline-num pat-times" placeholder="?"> times:
+                <div class="indent"><input type="text" class="pat-loop-action" placeholder="the pattern..."></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pattern 2 -->
+          <div class="pattern-card" data-repeat="1 2 3" data-times="4">
+            <div class="pattern-visual">
+              <span class="pat-num">1</span>
+              <span class="pat-num">2</span>
+              <span class="pat-num">3</span>
+              <span class="pat-num">1</span>
+              <span class="pat-num">2</span>
+              <span class="pat-num">3</span>
+              <span class="pat-num">1</span>
+              <span class="pat-num">2</span>
+              <span class="pat-num">3</span>
+              <span class="pat-num">1</span>
+              <span class="pat-num">2</span>
+              <span class="pat-num missing" id="p10-p2-missing">?</span>
+            </div>
+            <div class="pattern-work">
+              <div class="input-row compact">
+                <label>What repeats?</label>
+                <input type="text" class="pat-what" placeholder="e.g. 1 2 3">
+              </div>
+              <div class="loop-code-fill small">
+                <span class="kw">REPEAT</span> <input type="number" class="inline-num pat-times" placeholder="?"> times:
+                <div class="indent"><input type="text" class="pat-loop-action" placeholder="the pattern..."></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pattern 3 -->
+          <div class="pattern-card" data-repeat="A B B A" data-times="3">
+            <div class="pattern-visual">
+              <span class="pat-letter">A</span>
+              <span class="pat-letter">B</span>
+              <span class="pat-letter">B</span>
+              <span class="pat-letter">A</span>
+              <span class="pat-letter">A</span>
+              <span class="pat-letter">B</span>
+              <span class="pat-letter">B</span>
+              <span class="pat-letter">A</span>
+              <span class="pat-letter">A</span>
+              <span class="pat-letter">B</span>
+              <span class="pat-letter missing" id="p10-p3-missing1">?</span>
+              <span class="pat-letter missing" id="p10-p3-missing2">?</span>
+            </div>
+            <div class="pattern-work">
+              <div class="input-row compact">
+                <label>What repeats?</label>
+                <input type="text" class="pat-what" placeholder="e.g. A B B A">
+              </div>
+              <div class="loop-code-fill small">
+                <span class="kw">REPEAT</span> <input type="number" class="inline-num pat-times" placeholder="?"> times:
+                <div class="indent"><input type="text" class="pat-loop-action" placeholder="the pattern..."></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="toolbar" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="p10_check()">✓ Check Answers</button>
+          <button class="btn btn-secondary" onclick="p10_reset()">↺ Reset</button>
+          <button class="btn btn-danger" onclick="p10_reveal()">👁 Reveal Missing</button>
+        </div>
+      </div>
+
+      <!-- Make Your Own -->
+      <div class="form-section">
+        <h3><span class="icon">🎨</span> Make Your Own Pattern</h3>
+        <div class="input-row">
+          <textarea id="p10-mypattern" rows="2" placeholder="Type your pattern here (e.g. ♥ ♥ ♦ ♥ ♥ ♦)"></textarea>
+        </div>
+        <h3 style="margin-top:1rem;">Write the loop for it:</h3>
+        <div class="loop-code-block">
+          <div class="code-line"><span class="kw">REPEAT</span> <input type="number" id="p10-myTimes" class="inline-num" placeholder="?"> times:</div>
+          <div class="code-line indent"><input type="text" id="p10-myAction" class="code-input wide" placeholder="your pattern action..."></div>
+        </div>
+      </div>
+
       <div class="page-nav">
         <button class="btn btn-secondary" onclick="goToPage(9)">← Prev</button>
         <button class="btn btn-primary" onclick="goToPage(11)">Next →</button>
@@ -924,8 +1254,127 @@
     <!-- ==================== PAGE 11 ==================== -->
     <section class="page" id="page-11">
       <span class="badge">Code Thinker: Level 1</span>
-      <h1>Coming Soon</h1>
-      <p class="subtitle">Page 11 prompt pending.</p>
+      <h1>Spot the Bug 🐞</h1>
+      <p class="subtitle">A "bug" is a mistake in instructions. The computer follows them anyway — even if they're wrong!</p>
+
+      <!-- Example Bug -->
+      <div class="bug-example">
+        <h3><span class="icon">🍞</span> Example Bug: Steps to make toast</h3>
+        <div class="recipe-steps-list" id="p11-toastSteps">
+          <div class="recipe-step-item" data-step="1">
+            <span class="rstep-num">1</span>
+            <span class="rstep-text">Put bread in toaster</span>
+          </div>
+          <div class="recipe-step-item" data-step="2">
+            <span class="rstep-num">2</span>
+            <span class="rstep-text">Push lever down</span>
+          </div>
+          <div class="recipe-step-item" data-step="3">
+            <span class="rstep-num">3</span>
+            <span class="rstep-text">Wait 2 minutes</span>
+          </div>
+          <div class="recipe-step-item" data-step="4">
+            <span class="rstep-num">4</span>
+            <span class="rstep-text">Take toast out</span>
+          </div>
+          <div class="recipe-step-item bugged" data-step="5" id="p11-toastBug">
+            <span class="rstep-num">5</span>
+            <span class="rstep-text">Put jam on toast</span>
+            <span class="bug-tag">🐞 BUG!</span>
+          </div>
+        </div>
+
+        <div class="input-row" style="margin-top:1rem;">
+          <label>What is the bug in step 5?</label>
+          <input type="text" id="p11-toastGuess" placeholder="Type your guess...">
+        </div>
+
+        <div class="toolbar" style="margin-top:0.75rem;">
+          <button class="btn btn-primary" onclick="p11_checkToast()">✓ Check</button>
+          <button class="btn btn-danger" onclick="p11_revealToast()">👁 Reveal Answer</button>
+        </div>
+
+        <div class="reveal-box" id="p11-toastAnswer" style="display:none;">
+          <p><strong>Answer:</strong> The toast is still hot. You might burn your fingers.</p>
+          <p style="margin-top:0.5rem;"><strong>Better step 5:</strong> "Let toast cool, then put jam on."</p>
+        </div>
+      </div>
+
+      <!-- Your Turn -->
+      <div class="form-section">
+        <h3><span class="icon">🥣</span> Your Turn — Find the Bug</h3>
+        <div class="recipe-steps-list">
+          <div class="recipe-step-item">
+            <span class="rstep-num">1</span>
+            <span class="rstep-text">Get a bowl</span>
+          </div>
+          <div class="recipe-step-item bugged" id="p11-cerealBug1">
+            <span class="rstep-num">2</span>
+            <span class="rstep-text">Pour milk in bowl</span>
+          </div>
+          <div class="recipe-step-item bugged" id="p11-cerealBug2">
+            <span class="rstep-num">3</span>
+            <span class="rstep-text">Pour cereal on top</span>
+          </div>
+          <div class="recipe-step-item">
+            <span class="rstep-num">4</span>
+            <span class="rstep-text">Get a spoon</span>
+          </div>
+          <div class="recipe-step-item">
+            <span class="rstep-num">5</span>
+            <span class="rstep-text">Eat</span>
+          </div>
+        </div>
+
+        <h3 style="margin-top:1.25rem;"><span class="icon">🔍</span> BUG:</h3>
+        <div class="input-row">
+          <textarea id="p11-bugDesc" rows="2" placeholder="Describe the bug..."></textarea>
+        </div>
+
+        <h3 style="margin-top:1.25rem;"><span class="icon">🔧</span> Fixed Version:</h3>
+        <div class="fix-steps">
+          <div class="step-input-row">
+            <span class="step-input-num">1</span>
+            <input type="text" id="p11-fix1" placeholder="Fixed step 1...">
+          </div>
+          <div class="step-input-row">
+            <span class="step-input-num">2</span>
+            <input type="text" id="p11-fix2" placeholder="Fixed step 2...">
+          </div>
+          <div class="step-input-row">
+            <span class="step-input-num">3</span>
+            <input type="text" id="p11-fix3" placeholder="Fixed step 3...">
+          </div>
+          <div class="step-input-row">
+            <span class="step-input-num">4</span>
+            <input type="text" id="p11-fix4" placeholder="Fixed step 4...">
+          </div>
+          <div class="step-input-row">
+            <span class="step-input-num">5</span>
+            <input type="text" id="p11-fix5" placeholder="Fixed step 5...">
+          </div>
+        </div>
+
+        <div class="toolbar" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="p11_revealCereal()">👁 Reveal Bug & Fix</button>
+          <button class="btn btn-secondary" onclick="p11_resetCereal()">↺ Reset</button>
+        </div>
+
+        <div class="reveal-box" id="p11-cerealAnswer" style="display:none;">
+          <p><strong>Bug:</strong> Steps 2 and 3 are backwards! If you pour milk first, the cereal gets soggy.</p>
+          <p style="margin-top:0.5rem;"><strong>Fix:</strong> Pour cereal first, then milk.</p>
+        </div>
+      </div>
+
+      <div class="hint-box">
+        <h4>💡 Remember</h4>
+        <p>
+          Computers never "fix" bugs by themselves.<br>
+          They do EXACTLY what you tell them — even if it's wrong!<br>
+          Finding bugs is called <strong>debugging</strong>.
+        </p>
+      </div>
+
       <div class="page-nav">
         <button class="btn btn-secondary" onclick="goToPage(10)">← Prev</button>
         <button class="btn btn-primary" onclick="goToPage(12)">Next →</button>
@@ -935,8 +1384,100 @@
     <!-- ==================== PAGE 12 ==================== -->
     <section class="page" id="page-12">
       <span class="badge">Code Thinker: Level 1</span>
-      <h1>Coming Soon</h1>
-      <p class="subtitle">Page 12 prompt pending.</p>
+      <h1>More Bugs to Squash 🐞</h1>
+      <p class="subtitle">Find the bug. Explain what's wrong. Fix it.</p>
+
+      <!-- Bug 1 -->
+      <div class="bug-exercise" id="p12-bug1">
+        <div class="bug-header">
+          <span class="bug-icon">🐞</span>
+          <h3>BUG 1: Steps to tie shoes</h3>
+        </div>
+        <div class="recipe-steps-list">
+          <div class="recipe-step-item"><span class="rstep-num">1</span><span class="rstep-text">Cross the laces</span></div>
+          <div class="recipe-step-item"><span class="rstep-num">2</span><span class="rstep-text">Make a loop with one lace</span></div>
+          <div class="recipe-step-item"><span class="rstep-num">3</span><span class="rstep-text">Make a loop with the other lace</span></div>
+          <div class="recipe-step-item"><span class="rstep-num">4</span><span class="rstep-text">Pull both loops tight</span></div>
+        </div>
+        <div class="input-row" style="margin-top:1rem;">
+          <label>What's wrong?</label>
+          <textarea id="p12-b1-wrong" rows="2" placeholder="Describe the bug..."></textarea>
+        </div>
+        <div class="input-row">
+          <label>Fixed:</label>
+          <textarea id="p12-b1-fix" rows="3" placeholder="Write the fixed steps..."></textarea>
+        </div>
+        <div class="toolbar">
+          <button class="btn btn-primary" onclick="p12_reveal(1)">👁 Reveal Hint</button>
+        </div>
+        <div class="reveal-box" id="p12-b1-answer" style="display:none;">
+          <p><strong>Bug:</strong> You never actually tied a knot! Two loose loops won't stay together.</p>
+          <p style="margin-top:0.5rem;"><strong>Fix:</strong> After making the first loop, wrap the other lace around it and tuck it through before pulling tight.</p>
+        </div>
+      </div>
+
+      <!-- Bug 2 -->
+      <div class="bug-exercise" id="p12-bug2">
+        <div class="bug-header">
+          <span class="bug-icon">🐞</span>
+          <h3>BUG 2: Steps to brush teeth</h3>
+        </div>
+        <div class="recipe-steps-list">
+          <div class="recipe-step-item"><span class="rstep-num">1</span><span class="rstep-text">Put toothpaste on brush</span></div>
+          <div class="recipe-step-item"><span class="rstep-num">2</span><span class="rstep-text">Brush for 2 minutes</span></div>
+          <div class="recipe-step-item"><span class="rstep-num">3</span><span class="rstep-text">Rinse mouth</span></div>
+          <div class="recipe-step-item"><span class="rstep-num">4</span><span class="rstep-text">Put toothbrush away</span></div>
+        </div>
+        <div class="input-row" style="margin-top:1rem;">
+          <label>What's wrong?</label>
+          <textarea id="p12-b2-wrong" rows="2" placeholder="Describe the bug..."></textarea>
+        </div>
+        <div class="input-row">
+          <label>Fixed:</label>
+          <textarea id="p12-b2-fix" rows="3" placeholder="Write the fixed steps..."></textarea>
+        </div>
+        <div class="toolbar">
+          <button class="btn btn-primary" onclick="p12_reveal(2)">👁 Reveal Hint</button>
+        </div>
+        <div class="reveal-box" id="p12-b2-answer" style="display:none;">
+          <p><strong>Bug:</strong> Missing "wet the brush" before toothpaste, and missing "spit" after brushing!</p>
+          <p style="margin-top:0.5rem;"><strong>Fix:</strong> 1. Wet brush. 2. Add toothpaste. 3. Brush. 4. Spit. 5. Rinse. 6. Put away.</p>
+        </div>
+      </div>
+
+      <!-- Bug 3 -->
+      <div class="bug-exercise" id="p12-bug3">
+        <div class="bug-header">
+          <span class="bug-icon">🐞</span>
+          <h3>BUG 3: Steps to get dressed</h3>
+        </div>
+        <div class="recipe-steps-list">
+          <div class="recipe-step-item"><span class="rstep-num">1</span><span class="rstep-text">Put on shirt</span></div>
+          <div class="recipe-step-item bugged" id="p12-b3-step2"><span class="rstep-num">2</span><span class="rstep-text">Put on socks</span></div>
+          <div class="recipe-step-item"><span class="rstep-num">3</span><span class="rstep-text">Put on pants</span></div>
+          <div class="recipe-step-item"><span class="rstep-num">4</span><span class="rstep-text">Put on shoes</span></div>
+        </div>
+        <div class="input-row" style="margin-top:1rem;">
+          <label>What's wrong?</label>
+          <textarea id="p12-b3-wrong" rows="2" placeholder="Describe the bug..."></textarea>
+        </div>
+        <div class="input-row">
+          <label>Fixed:</label>
+          <textarea id="p12-b3-fix" rows="3" placeholder="Write the fixed steps..."></textarea>
+        </div>
+        <div class="toolbar">
+          <button class="btn btn-primary" onclick="p12_reveal(3)">👁 Reveal Hint</button>
+        </div>
+        <div class="reveal-box" id="p12-b3-answer" style="display:none;">
+          <p><strong>Bug:</strong> Socks go on AFTER pants! Otherwise you can't pull your pants over your socks easily.</p>
+          <p style="margin-top:0.5rem;"><strong>Fix:</strong> 1. Shirt. 2. Pants. 3. Socks. 4. Shoes.</p>
+        </div>
+      </div>
+
+      <div class="toolbar" style="justify-content:center; margin-bottom:1.5rem;">
+        <button class="btn btn-secondary" onclick="p12_resetAll()">↺ Reset All Bugs</button>
+      </div>
+
       <div class="page-nav">
         <button class="btn btn-secondary" onclick="goToPage(11)">← Prev</button>
         <button class="btn btn-primary" onclick="goToPage(13)">Next →</button>
@@ -946,8 +1487,94 @@
     <!-- ==================== PAGE 13 ==================== -->
     <section class="page" id="page-13">
       <span class="badge">Code Thinker: Level 1</span>
-      <h1>Coming Soon</h1>
-      <p class="subtitle">Page 13 prompt pending.</p>
+      <h1>Computer Bugs 🐞</h1>
+      <p class="subtitle">These instructions are for a robot moving on a grid. Find the bug!</p>
+
+      <!-- Grid Simulator -->
+      <div class="grid-sim">
+        <div class="grid-board" id="p13-grid">
+          <div class="grid-cell start" data-x="0" data-y="0">START</div>
+          <div class="grid-cell" data-x="1" data-y="0"></div>
+          <div class="grid-cell" data-x="2" data-y="0"></div>
+          <div class="grid-cell" data-x="0" data-y="1"></div>
+          <div class="grid-cell" data-x="1" data-y="1"></div>
+          <div class="grid-cell" data-x="2" data-y="1"></div>
+          <div class="grid-cell" data-x="0" data-y="2"></div>
+          <div class="grid-cell" data-x="1" data-y="2"></div>
+          <div class="grid-cell goal" data-x="2" data-y="2">★</div>
+        </div>
+        <div class="robot" id="p13-robot">🤖</div>
+        <div class="robot-trail" id="p13-trail"></div>
+      </div>
+
+      <!-- Buggy Program -->
+      <div class="form-section">
+        <h3><span class="icon">🤖</span> Buggy Program</h3>
+        <div class="program-steps" id="p13-buggy">
+          <div class="prog-step"><span class="prog-num">1</span><input type="text" value="Move right" readonly class="locked"></div>
+          <div class="prog-step"><span class="prog-num">2</span><input type="text" value="Move right" readonly class="locked"></div>
+          <div class="prog-step"><span class="prog-num">3</span><input type="text" value="Move down" readonly class="locked"></div>
+          <div class="prog-step"><span class="prog-num">4</span><input type="text" value="Move down" readonly class="locked"></div>
+          <div class="prog-step"><span class="prog-num">5</span><input type="text" value="Move left" readonly class="locked"></div>
+        </div>
+        <div class="toolbar" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="p13_runBuggy()">▶ Run Buggy Program</button>
+          <button class="btn btn-secondary" onclick="p13_resetRobot()">↺ Reset Robot</button>
+        </div>
+        <div class="sim-result" id="p13-buggyResult" style="display:none; margin-top:1rem;"></div>
+      </div>
+
+      <!-- Analysis -->
+      <div class="form-section">
+        <h3><span class="icon">🔍</span> Analysis</h3>
+        <h4>Did it work?</h4>
+        <div class="radio-group">
+          <label class="radio-item" onclick="p13_selectRadio(this)">
+            <input type="radio" name="p13-work" value="yes">
+            <span>YES</span>
+          </label>
+          <label class="radio-item" onclick="p13_selectRadio(this)">
+            <input type="radio" name="p13-work" value="no">
+            <span>NO</span>
+          </label>
+        </div>
+
+        <h4 style="margin-top:1.25rem;">Where did it end up?</h4>
+        <div class="input-row">
+          <input type="text" id="p13-endPos" placeholder="e.g. Bottom middle">
+        </div>
+
+        <h4 style="margin-top:1.25rem;">BUG:</h4>
+        <div class="input-row">
+          <textarea id="p13-bugDesc" rows="2" placeholder="Describe the bug..."></textarea>
+        </div>
+      </div>
+
+      <!-- Fixed Program -->
+      <div class="form-section">
+        <h3><span class="icon">🔧</span> Fixed Instructions</h3>
+        <div class="program-steps">
+          <div class="prog-step"><span class="prog-num">1</span><input type="text" id="p13-f1" placeholder="Fixed step 1..."></div>
+          <div class="prog-step"><span class="prog-num">2</span><input type="text" id="p13-f2" placeholder="Fixed step 2..."></div>
+          <div class="prog-step"><span class="prog-num">3</span><input type="text" id="p13-f3" placeholder="Fixed step 3..."></div>
+          <div class="prog-step"><span class="prog-num">4</span><input type="text" id="p13-f4" placeholder="Fixed step 4..."></div>
+          <div class="prog-step"><span class="prog-num">5</span><input type="text" id="p13-f5" placeholder="Fixed step 5..."></div>
+        </div>
+        <div class="toolbar" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="p13_runFixed()">▶ Run Fixed Program</button>
+          <button class="btn btn-danger" onclick="p13_revealFix()">👁 Reveal Answer</button>
+        </div>
+        <div class="sim-result" id="p13-fixedResult" style="display:none; margin-top:1rem;"></div>
+      </div>
+
+      <div class="hint-box">
+        <h4>💡 Tip</h4>
+        <p>
+          Always trace your code step by step.<br>
+          Draw the path on paper (or the grid above) to see where the robot really goes!
+        </p>
+      </div>
+
       <div class="page-nav">
         <button class="btn btn-secondary" onclick="goToPage(12)">← Prev</button>
         <button class="btn btn-primary" onclick="goToPage(14)">Next →</button>

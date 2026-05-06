@@ -719,7 +719,318 @@ document.addEventListener('keydown', (e) => {
 })();
 
 /* ============================================================
-   PAGES 8–20 — PLACEHOLDER INITIALIZATION
+   PAGE 8 — REPEAT AFTER ME (Loop Simulator)
+   ============================================================ */
+
+(function initPage8() {
+  window.p8_runLoop = function() {
+    const text = document.getElementById('p8-repeatText').value || 'Hello';
+    const num = parseInt(document.getElementById('p8-repeatNum').value, 10) || 5;
+    const output = document.getElementById('p8-loopOutput');
+
+    let result = '';
+    for (let i = 0; i < num; i++) {
+      result += text + ' ';
+    }
+    output.textContent = result.trim();
+  };
+
+  window.p8_selectRadio = function(el) {
+    document.querySelectorAll('#page-8 .radio-item').forEach(r => r.classList.remove('selected'));
+    el.classList.add('selected');
+    el.querySelector('input').checked = true;
+  };
+})();
+
+/* ============================================================
+   PAGE 9 — LOOP PRACTICE (Answer Checker)
+   ============================================================ */
+
+(function initPage9() {
+  window.p9_check = function() {
+    document.querySelectorAll('#p9-exercises .loop-exercise').forEach(ex => {
+      const answer = parseInt(ex.dataset.answer, 10);
+      const input = ex.querySelector('input');
+      const val = parseInt(input.value, 10);
+
+      ex.classList.remove('correct', 'wrong');
+      if (!isNaN(val)) {
+        if (val === answer) {
+          ex.classList.add('correct');
+        } else {
+          ex.classList.add('wrong');
+        }
+      }
+    });
+  };
+
+  window.p9_reset = function() {
+    document.querySelectorAll('#p9-exercises input').forEach(inp => inp.value = '');
+    document.querySelectorAll('#p9-exercises .loop-exercise').forEach(ex => {
+      ex.classList.remove('correct', 'wrong');
+    });
+  };
+})();
+
+/* ============================================================
+   PAGE 10 — PATTERN POWER (Pattern Checker)
+   ============================================================ */
+
+(function initPage10() {
+  const answers = [
+    { repeat: '▲ ▲ ■', times: '4', missing: '■' },
+    { repeat: '1 2 3', times: '4', missing: '3' },
+    { repeat: 'A B B A', times: '3', missing: ['B', 'A'] }
+  ];
+
+  window.p10_check = function() {
+    const cards = document.querySelectorAll('#p10-patterns .pattern-card');
+    cards.forEach((card, i) => {
+      const ans = answers[i];
+      const whatInput = card.querySelector('.pat-what').value.trim();
+      const timesInput = card.querySelector('.pat-times').value.trim();
+
+      card.classList.remove('correct', 'wrong');
+
+      const whatCorrect = whatInput.toLowerCase().replace(/\s+/g, ' ') === ans.repeat.toLowerCase();
+      const timesCorrect = timesInput === ans.times;
+
+      if (whatCorrect && timesCorrect) {
+        card.classList.add('correct');
+      } else if (whatInput || timesInput) {
+        card.classList.add('wrong');
+      }
+    });
+  };
+
+  window.p10_reveal = function() {
+    document.getElementById('p10-p1-missing').textContent = '■';
+    document.getElementById('p10-p1-missing').classList.add('revealed');
+
+    document.getElementById('p10-p2-missing').textContent = '3';
+    document.getElementById('p10-p2-missing').classList.add('revealed');
+
+    document.getElementById('p10-p3-missing1').textContent = 'B';
+    document.getElementById('p10-p3-missing1').classList.add('revealed');
+    document.getElementById('p10-p3-missing2').textContent = 'A';
+    document.getElementById('p10-p3-missing2').classList.add('revealed');
+  };
+
+  window.p10_reset = function() {
+    document.querySelectorAll('#p10-patterns .pattern-card').forEach(card => {
+      card.classList.remove('correct', 'wrong');
+      card.querySelectorAll('input').forEach(inp => inp.value = '');
+    });
+
+    const m1 = document.getElementById('p10-p1-missing');
+    m1.textContent = '?'; m1.classList.remove('revealed');
+    const m2 = document.getElementById('p10-p2-missing');
+    m2.textContent = '?'; m2.classList.remove('revealed');
+    const m3a = document.getElementById('p10-p3-missing1');
+    m3a.textContent = '?'; m3a.classList.remove('revealed');
+    const m3b = document.getElementById('p10-p3-missing2');
+    m3b.textContent = '?'; m3b.classList.remove('revealed');
+  };
+})();
+
+/* ============================================================
+   PAGE 11 — SPOT THE BUG (Toast & Cereal)
+   ============================================================ */
+
+(function initPage11() {
+  window.p11_checkToast = function() {
+    const guess = document.getElementById('p11-toastGuess').value.trim().toLowerCase();
+    if (guess.includes('hot') || guess.includes('burn') || guess.includes('cool')) {
+      document.getElementById('p11-toastBug').classList.add('revealed');
+      document.getElementById('p11-toastAnswer').style.display = 'block';
+    } else {
+      alert('Not quite! Think about what happens right after taking toast out of the toaster.');
+    }
+  };
+
+  window.p11_revealToast = function() {
+    document.getElementById('p11-toastBug').classList.add('revealed');
+    document.getElementById('p11-toastAnswer').style.display = 'block';
+  };
+
+  window.p11_revealCereal = function() {
+    document.getElementById('p11-cerealBug1').classList.add('revealed');
+    document.getElementById('p11-cerealBug2').classList.add('revealed');
+    document.getElementById('p11-cerealAnswer').style.display = 'block';
+  };
+
+  window.p11_resetCereal = function() {
+    document.getElementById('p11-cerealBug1').classList.remove('revealed');
+    document.getElementById('p11-cerealBug2').classList.remove('revealed');
+    document.getElementById('p11-cerealAnswer').style.display = 'none';
+    document.getElementById('p11-bugDesc').value = '';
+    document.getElementById('p11-fix1').value = '';
+    document.getElementById('p11-fix2').value = '';
+    document.getElementById('p11-fix3').value = '';
+    document.getElementById('p11-fix4').value = '';
+    document.getElementById('p11-fix5').value = '';
+  };
+})();
+
+/* ============================================================
+   PAGE 12 — MORE BUGS TO SQUASH (Reveal & Reset)
+   ============================================================ */
+
+(function initPage12() {
+  window.p12_reveal = function(n) {
+    document.getElementById('p12-b' + n + '-answer').style.display = 'block';
+    // Shake the bugged steps if any
+    const bugEl = document.getElementById('p12-bug' + n);
+    if (bugEl) {
+      bugEl.querySelectorAll('.recipe-step-item.bugged').forEach(el => {
+        el.classList.add('revealed');
+      });
+    }
+  };
+
+  window.p12_resetAll = function() {
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById('p12-b' + i + '-answer').style.display = 'none';
+      document.getElementById('p12-b' + i + '-wrong').value = '';
+      document.getElementById('p12-b' + i + '-fix').value = '';
+      const bugEl = document.getElementById('p12-bug' + i);
+      if (bugEl) {
+        bugEl.querySelectorAll('.recipe-step-item.bugged').forEach(el => {
+          el.classList.remove('revealed');
+        });
+      }
+    }
+  };
+})();
+
+/* ============================================================
+   PAGE 13 — COMPUTER BUGS (Robot Grid Simulator)
+   ============================================================ */
+
+(function initPage13() {
+  const robot = document.getElementById('p13-robot');
+  const grid = document.getElementById('p13-grid');
+  let currentX = 0, currentY = 0;
+  let isRunning = false;
+
+  function getCell(x, y) {
+    return grid.querySelector('.grid-cell[data-x="' + x + '"][data-y="' + y + '"]');
+  }
+
+  function posRobot(x, y) {
+    const cell = getCell(x, y);
+    if (!cell || !robot) return;
+    const rect = cell.getBoundingClientRect();
+    const gridRect = grid.getBoundingClientRect();
+    robot.style.left = (rect.left - gridRect.left + rect.width / 2 - 24) + 'px';
+    robot.style.top = (rect.top - gridRect.top + rect.height / 2 - 24) + 'px';
+  }
+
+  function markVisited(x, y) {
+    const cell = getCell(x, y);
+    if (cell) cell.classList.add('visited');
+  }
+
+  function clearVisited() {
+    grid.querySelectorAll('.grid-cell').forEach(c => c.classList.remove('visited'));
+  }
+
+  function parseStep(text) {
+    const t = text.toLowerCase().trim();
+    if (t.includes('right')) return { dx: 1, dy: 0 };
+    if (t.includes('left')) return { dx: -1, dy: 0 };
+    if (t.includes('down')) return { dx: 0, dy: 1 };
+    if (t.includes('up')) return { dx: 0, dy: -1 };
+    return { dx: 0, dy: 0 };
+  }
+
+  function runProgram(steps, resultId) {
+    if (isRunning) return;
+    isRunning = true;
+    p13_resetRobot();
+
+    let x = 0, y = 0;
+    markVisited(x, y);
+    let i = 0;
+
+    const next = () => {
+      if (i >= steps.length) {
+        isRunning = false;
+        const atGoal = (x === 2 && y === 2);
+        const res = document.getElementById(resultId);
+        res.style.display = 'block';
+        if (atGoal) {
+          res.className = 'sim-result ok';
+          res.textContent = '🎉 The robot reached the goal at (' + x + ',' + y + ')!';
+        } else {
+          res.className = 'sim-result bad';
+          res.textContent = '❌ The robot ended up at (' + x + ',' + y + '). Not the goal!';
+        }
+        return;
+      }
+
+      const move = parseStep(steps[i]);
+      x += move.dx;
+      y += move.dy;
+      x = Math.max(0, Math.min(2, x));
+      y = Math.max(0, Math.min(2, y));
+      posRobot(x, y);
+      markVisited(x, y);
+      i++;
+      setTimeout(next, 600);
+    };
+
+    setTimeout(next, 300);
+  }
+
+  window.p13_runBuggy = function() {
+    runProgram(['Move right','Move right','Move down','Move down','Move left'], 'p13-buggyResult');
+  };
+
+  window.p13_runFixed = function() {
+    const steps = [];
+    for (let i = 1; i <= 5; i++) {
+      const val = document.getElementById('p13-f' + i).value.trim();
+      if (val) steps.push(val);
+    }
+    if (steps.length === 0) {
+      alert('Type some fixed steps first!');
+      return;
+    }
+    runProgram(steps, 'p13-fixedResult');
+  };
+
+  window.p13_resetRobot = function() {
+    currentX = 0; currentY = 0;
+    clearVisited();
+    posRobot(0, 0);
+    markVisited(0, 0);
+    document.getElementById('p13-buggyResult').style.display = 'none';
+    document.getElementById('p13-fixedResult').style.display = 'none';
+    isRunning = false;
+  };
+
+  window.p13_revealFix = function() {
+    document.getElementById('p13-f1').value = 'Move right';
+    document.getElementById('p13-f2').value = 'Move right';
+    document.getElementById('p13-f3').value = 'Move down';
+    document.getElementById('p13-f4').value = 'Move down';
+    document.getElementById('p13-f5').value = '(no step needed)';
+  };
+
+  window.p13_selectRadio = function(el) {
+    document.querySelectorAll('#page-13 .radio-item').forEach(r => r.classList.remove('selected'));
+    el.classList.add('selected');
+    el.querySelector('input').checked = true;
+  };
+
+  // Init robot position
+  setTimeout(() => posRobot(0, 0), 100);
+  window.addEventListener('resize', () => posRobot(currentX, currentY));
+})();
+
+/* ============================================================
+   PAGES 14–20 — PLACEHOLDER INITIALIZATION
    Add page-specific logic here as prompts arrive.
    ============================================================ */
 
