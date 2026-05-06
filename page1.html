@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Thinker: Level 1 — You Are The Computer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #1a1d2b;
+      --muted: #6b7280;
+      --accent: #6366f1;
+      --accent-light: #e0e7ff;
+      --accent-dark: #4f46e5;
+      --success: #10b981;
+      --danger: #ef4444;
+      --border: #e2e8f0;
+      --grid: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Alert Box */
+    .alert {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* Steps */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.9rem 1.1rem;
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .step:hover {
+      border-color: #cbd5e1;
+    }
+
+    .step.active {
+      border-color: var(--accent);
+      background: #fafbff;
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .step.completed {
+      border-color: var(--success);
+      background: #f0fdf4;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--text);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-top: 1px;
+    }
+
+    .step.active .step-num {
+      background: var(--accent);
+    }
+
+    .step.completed .step-num {
+      background: var(--success);
+    }
+
+    .step-text {
+      font-size: 0.95rem;
+      padding-top: 3px;
+    }
+
+    /* Canvas Area */
+    .canvas-section {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .canvas-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+
+    .canvas-wrap {
+      position: relative;
+      display: inline-block;
+      border: 2px solid #1a1d2b;
+      border-radius: 4px;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 19px,
+        var(--grid) 19px,
+        var(--grid) 20px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 19px,
+        var(--grid) 19px,
+        var(--grid) 20px
+      );
+      background-color: #fff;
+    }
+
+    canvas {
+      display: block;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    .canvas-hint {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-danger {
+      background: #fef2f2;
+      color: var(--danger);
+    }
+
+    .btn-danger:hover {
+      background: #fee2e2;
+    }
+
+    /* Form Section */
+    .form-section {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-section h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-section h3 .icon {
+      font-size: 1.2rem;
+    }
+
+    .input-row {
+      margin-bottom: 1.25rem;
+    }
+
+    .input-row label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .input-row input[type="text"],
+    .input-row textarea {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: border-color 0.15s ease;
+      resize: vertical;
+    }
+
+    .input-row input[type="text"]:focus,
+    .input-row textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      padding: 0.4rem 0.8rem;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .radio-item:hover {
+      border-color: #cbd5e1;
+    }
+
+    .radio-item.selected {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .radio-item input {
+      cursor: pointer;
+    }
+
+    /* Hint Box */
+    .hint-box {
+      background: #fffbeb;
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .hint-box h4 {
+      color: #92400e;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hint-box p {
+      color: #78350f;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .hint-box code {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(245, 158, 11, 0.15);
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+
+    /* Footer */
+    .page-footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(99, 102, 241, 0); }
+    }
+
+    .step.active {
+      animation: pulse 2s infinite;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      .canvas-wrap { transform: scale(0.85); transform-origin: top center; }
+      .canvas-section { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">Code Thinker: Level 1</span>
+    <h1>You Are The Computer</h1>
+    <p class="subtitle">A computer does EXACTLY what you tell it. Nothing more. Nothing less.</p>
+
+    <div class="alert">
+      Follow these steps in order. Do not skip. Do not guess.
+    </div>
+
+    <!-- Steps -->
+    <div class="steps" id="steps">
+      <div class="step active" data-step="0" onclick="setStep(0)">
+        <span class="step-num">1</span>
+        <span class="step-text">Draw a dot in the center of the box below.</span>
+      </div>
+      <div class="step" data-step="1" onclick="setStep(1)">
+        <span class="step-num">2</span>
+        <span class="step-text">Draw a line 3 cm up from the dot.</span>
+      </div>
+      <div class="step" data-step="2" onclick="setStep(2)">
+        <span class="step-num">3</span>
+        <span class="step-text">Draw a line 3 cm right from the dot.</span>
+      </div>
+      <div class="step" data-step="3" onclick="setStep(3)">
+        <span class="step-num">4</span>
+        <span class="step-text">Draw a line 3 cm down from the dot.</span>
+      </div>
+      <div class="step" data-step="4" onclick="setStep(4)">
+        <span class="step-num">5</span>
+        <span class="step-text">Draw a line 3 cm left from the dot.</span>
+      </div>
+      <div class="step" data-step="5" onclick="setStep(5)">
+        <span class="step-num">6</span>
+        <span class="step-text">Connect the ends of the lines.</span>
+      </div>
+    </div>
+
+    <!-- Canvas -->
+    <div class="canvas-section">
+      <div class="canvas-label">Drawing Box: 4 in × 4 in</div>
+      <div class="canvas-wrap">
+        <canvas id="drawCanvas" width="384" height="384"></canvas>
+      </div>
+      <div class="canvas-hint">Click and drag to draw. Each grid square = 1 cm.</div>
+      <div class="toolbar">
+        <button class="btn btn-primary" onclick="markStepDone()">✓ Mark Step Done</button>
+        <button class="btn btn-secondary" onclick="autoDraw()">▶ Auto-Play Steps</button>
+        <button class="btn btn-danger" onclick="clearCanvas()">✕ Clear Canvas</button>
+      </div>
+    </div>
+
+    <!-- Questions -->
+    <div class="form-section">
+      <h3><span class="icon">🎯</span> What did you make?</h3>
+      <div class="input-row">
+        <input type="text" id="answer1" placeholder="Type your answer here...">
+      </div>
+
+      <h3><span class="icon">🧑‍🤝‍🧑</span> Now try: Give these steps to a friend. Did they make the same thing?</h3>
+      <div class="radio-group">
+        <label class="radio-item" onclick="selectRadio(this)">
+          <input type="radio" name="same" value="yes">
+          <span>YES</span>
+        </label>
+        <label class="radio-item" onclick="selectRadio(this)">
+          <input type="radio" name="same" value="no">
+          <span>NO</span>
+        </label>
+      </div>
+
+      <h3 style="margin-top:1.25rem;"><span class="icon">🔍</span> If NO, what went wrong?</h3>
+      <div class="input-row">
+        <textarea id="answer2" rows="3" placeholder="Describe what went differently..."></textarea>
+      </div>
+    </div>
+
+    <!-- Hint -->
+    <div class="hint-box">
+      <h4>💡 Hint</h4>
+      <p>
+        Computers need every detail.<br>
+        <code>"Draw a square"</code> is not enough.<br>
+        <code>"Draw a line 3 cm up, then 3 cm right"</code> is better.
+      </p>
+    </div>
+
+    <div class="page-footer">
+      Code Thinker · Level 1 · Page 1 of 20
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('drawCanvas');
+    const ctx = canvas.getContext('2d');
+    let currentStep = 0;
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    const steps = document.querySelectorAll('.step');
+
+    // 1 cm = ~38px on 384px canvas (10cm x 10cm)
+    const CM = 38.4;
+    const CENTER = { x: 192, y: 192 };
+
+    function setStep(n) {
+      currentStep = n;
+      steps.forEach((s, i) => {
+        s.classList.remove('active');
+        if (i === n) s.classList.add('active');
+      });
+    }
+
+    function markStepDone() {
+      steps[currentStep].classList.add('completed');
+      if (currentStep < steps.length - 1) {
+        setStep(currentStep + 1);
+      }
+    }
+
+    function selectRadio(el) {
+      document.querySelectorAll('.radio-item').forEach(r => r.classList.remove('selected'));
+      el.classList.add('selected');
+      el.querySelector('input').checked = true;
+    }
+
+    // Drawing
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return {
+        x: (clientX - rect.left) * (canvas.width / rect.width),
+        y: (clientY - rect.top) * (canvas.height / rect.height)
+      };
+    }
+
+    canvas.addEventListener('mousedown', e => { isDrawing = true; const p = getPos(e); lastX = p.x; lastY = p.y; });
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); isDrawing = true; const p = getPos(e); lastX = p.x; lastY = p.y; }, { passive: false });
+
+    canvas.addEventListener('mousemove', e => {
+      if (!isDrawing) return;
+      const p = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(p.x, p.y);
+      ctx.strokeStyle = '#1a1d2b';
+      ctx.lineWidth = 2.5;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      lastX = p.x;
+      lastY = p.y;
+    });
+    canvas.addEventListener('touchmove', e => {
+      e.preventDefault();
+      if (!isDrawing) return;
+      const p = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(p.x, p.y);
+      ctx.strokeStyle = '#1a1d2b';
+      ctx.lineWidth = 2.5;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      lastX = p.x;
+      lastY = p.y;
+    }, { passive: false });
+
+    window.addEventListener('mouseup', () => isDrawing = false);
+    window.addEventListener('touchend', () => isDrawing = false);
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      steps.forEach(s => s.classList.remove('completed'));
+      setStep(0);
+    }
+
+    function autoDraw() {
+      clearCanvas();
+      let s = 0;
+      const draw = () => {
+        if (s >= 6) return;
+        setStep(s);
+        ctx.strokeStyle = '#6366f1';
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+
+        if (s === 0) {
+          ctx.arc(CENTER.x, CENTER.y, 4, 0, Math.PI * 2);
+          ctx.fillStyle = '#6366f1';
+          ctx.fill();
+        } else if (s === 1) {
+          ctx.moveTo(CENTER.x, CENTER.y);
+          ctx.lineTo(CENTER.x, CENTER.y - CM * 3);
+        } else if (s === 2) {
+          ctx.moveTo(CENTER.x, CENTER.y);
+          ctx.lineTo(CENTER.x + CM * 3, CENTER.y);
+        } else if (s === 3) {
+          ctx.moveTo(CENTER.x, CENTER.y);
+          ctx.lineTo(CENTER.x, CENTER.y + CM * 3);
+        } else if (s === 4) {
+          ctx.moveTo(CENTER.x, CENTER.y);
+          ctx.lineTo(CENTER.x - CM * 3, CENTER.y);
+        } else if (s === 5) {
+          ctx.moveTo(CENTER.x, CENTER.y - CM * 3);
+          ctx.lineTo(CENTER.x + CM * 3, CENTER.y - CM * 3);
+          ctx.lineTo(CENTER.x + CM * 3, CENTER.y + CM * 3);
+          ctx.lineTo(CENTER.x - CM * 3, CENTER.y + CM * 3);
+          ctx.lineTo(CENTER.x - CM * 3, CENTER.y - CM * 3);
+        }
+        ctx.stroke();
+        steps[s].classList.add('completed');
+        s++;
+        setTimeout(draw, 600);
+      };
+      draw();
+    }
+  </script>
+</body>
+</html>

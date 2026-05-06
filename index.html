@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Thinker — 20 Pages</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-icon">◈</span>
+      <span class="brand-text">Code Thinker</span>
+    </div>
+    <div class="sidebar-pages">
+      <button class="nav-btn active" data-target="page-1" onclick="goToPage(1)">
+        <span class="nav-num">01</span>
+        <span class="nav-label">You Are The Computer</span>
+      </button>
+      <!-- Pages 2-20 will be injected here or added as prompts come -->
+      <button class="nav-btn" data-target="page-2" onclick="goToPage(2)">
+        <span class="nav-num">02</span>
+        <span class="nav-label">Order Matters</span>
+      </button>
+      <button class="nav-btn" data-target="page-3" onclick="goToPage(3)">
+        <span class="nav-num">03</span>
+        <span class="nav-label">Draw By Numbers</span>
+      </button>
+      <button class="nav-btn" data-target="page-4" onclick="goToPage(4)">
+        <span class="nav-num">04</span>
+        <span class="nav-label">True or False</span>
+      </button>
+      <button class="nav-btn" data-target="page-5" onclick="goToPage(5)">
+        <span class="nav-num">05</span>
+        <span class="nav-label">If This, Then That</span>
+      </button>
+      <button class="nav-btn" data-target="page-6" onclick="goToPage(6)">
+        <span class="nav-num">06</span>
+        <span class="nav-label">YES/NO Maze</span>
+      </button>
+      <button class="nav-btn" data-target="page-7" onclick="goToPage(7)">
+        <span class="nav-num">07</span>
+        <span class="nav-label">Decision Tree</span>
+      </button>
+      <button class="nav-btn" data-target="page-8" onclick="goToPage(8)">
+        <span class="nav-num">08</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-9" onclick="goToPage(9)">
+        <span class="nav-num">09</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-10" onclick="goToPage(10)">
+        <span class="nav-num">10</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-11" onclick="goToPage(11)">
+        <span class="nav-num">11</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-12" onclick="goToPage(12)">
+        <span class="nav-num">12</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-13" onclick="goToPage(13)">
+        <span class="nav-num">13</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-14" onclick="goToPage(14)">
+        <span class="nav-num">14</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-15" onclick="goToPage(15)">
+        <span class="nav-num">15</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-16" onclick="goToPage(16)">
+        <span class="nav-num">16</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-17" onclick="goToPage(17)">
+        <span class="nav-num">17</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-18" onclick="goToPage(18)">
+        <span class="nav-num">18</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-19" onclick="goToPage(19)">
+        <span class="nav-num">19</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+      <button class="nav-btn" data-target="page-20" onclick="goToPage(20)">
+        <span class="nav-num">20</span>
+        <span class="nav-label">Coming Soon</span>
+      </button>
+    </div>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main" id="main">
+
+    <!-- Progress Bar -->
+    <div class="top-bar">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width: 5%"></div>
+      </div>
+      <span class="progress-text" id="progressText">Page 1 of 20</span>
+    </div>
+
+    <!-- ==================== PAGE 1 ==================== -->
+    <section class="page active" id="page-1">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>You Are The Computer</h1>
+      <p class="subtitle">A computer does EXACTLY what you tell it. Nothing more. Nothing less.</p>
+
+      <div class="alert">
+        Follow these steps in order. Do not skip. Do not guess.
+      </div>
+
+      <div class="steps" id="p1-steps">
+        <div class="step active" data-step="0" onclick="p1_setStep(0)">
+          <span class="step-num">1</span>
+          <span class="step-text">Draw a dot in the center of the box below.</span>
+        </div>
+        <div class="step" data-step="1" onclick="p1_setStep(1)">
+          <span class="step-num">2</span>
+          <span class="step-text">Draw a line 3 cm up from the dot.</span>
+        </div>
+        <div class="step" data-step="2" onclick="p1_setStep(2)">
+          <span class="step-num">3</span>
+          <span class="step-text">Draw a line 3 cm right from the dot.</span>
+        </div>
+        <div class="step" data-step="3" onclick="p1_setStep(3)">
+          <span class="step-num">4</span>
+          <span class="step-text">Draw a line 3 cm down from the dot.</span>
+        </div>
+        <div class="step" data-step="4" onclick="p1_setStep(4)">
+          <span class="step-num">5</span>
+          <span class="step-text">Draw a line 3 cm left from the dot.</span>
+        </div>
+        <div class="step" data-step="5" onclick="p1_setStep(5)">
+          <span class="step-num">6</span>
+          <span class="step-text">Connect the ends of the lines.</span>
+        </div>
+      </div>
+
+      <div class="canvas-section">
+        <div class="canvas-label">Drawing Box: 4 in × 4 in</div>
+        <div class="canvas-wrap">
+          <canvas id="p1-canvas" width="384" height="384"></canvas>
+        </div>
+        <div class="canvas-hint">Click and drag to draw. Each grid square = 1 cm.</div>
+        <div class="toolbar">
+          <button class="btn btn-primary" onclick="p1_markDone()">✓ Mark Step Done</button>
+          <button class="btn btn-secondary" onclick="p1_autoDraw()">▶ Auto-Play Steps</button>
+          <button class="btn btn-danger" onclick="p1_clear()">✕ Clear Canvas</button>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3><span class="icon">🎯</span> What did you make?</h3>
+        <div class="input-row">
+          <input type="text" id="p1-ans1" placeholder="Type your answer here...">
+        </div>
+
+        <h3><span class="icon">🧑‍🤝‍🧑</span> Now try: Give these steps to a friend. Did they make the same thing?</h3>
+        <div class="radio-group">
+          <label class="radio-item" onclick="p1_selectRadio(this)">
+            <input type="radio" name="p1-same" value="yes">
+            <span>YES</span>
+          </label>
+          <label class="radio-item" onclick="p1_selectRadio(this)">
+            <input type="radio" name="p1-same" value="no">
+            <span>NO</span>
+          </label>
+        </div>
+
+        <h3 style="margin-top:1.25rem;"><span class="icon">🔍</span> If NO, what went wrong?</h3>
+        <div class="input-row">
+          <textarea id="p1-ans2" rows="3" placeholder="Describe what went differently..."></textarea>
+        </div>
+      </div>
+
+      <div class="hint-box">
+        <h4>💡 Hint</h4>
+        <p>
+          Computers need every detail.<br>
+          <code>"Draw a square"</code> is not enough.<br>
+          <code>"Draw a line 3 cm up, then 3 cm right"</code> is better.
+        </p>
+      </div>
+
+      <div class="page-nav">
+        <span></span>
+        <button class="btn btn-primary" onclick="goToPage(2)">Next Page →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 2 ==================== -->
+    <section class="page" id="page-2">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Order Matters</h1>
+      <p class="subtitle">Computers follow steps in EXACT ORDER. Change the order = change the result.</p>
+
+      <!-- Example: Sandwich Recipes -->
+      <div class="recipe-grid">
+        <div class="recipe-card success">
+          <div class="recipe-header">
+            <span class="recipe-badge ok">✓</span>
+            <h3>Recipe A</h3>
+          </div>
+          <ol class="recipe-steps">
+            <li>Put bread on plate</li>
+            <li>Spread peanut butter</li>
+            <li>Put jelly on top</li>
+            <li>Put second bread on top</li>
+          </ol>
+          <div class="recipe-result">
+            <span class="result-emoji">🥪</span>
+            <span class="result-label">Normal sandwich</span>
+          </div>
+        </div>
+
+        <div class="recipe-card fail">
+          <div class="recipe-header">
+            <span class="recipe-badge bad">✗</span>
+            <h3>Recipe B <small>(same steps, wrong order)</small></h3>
+          </div>
+          <ol class="recipe-steps">
+            <li>Put jelly on plate</li>
+            <li>Put bread on top</li>
+            <li>Spread peanut butter</li>
+            <li>Put second bread on top</li>
+          </ol>
+          <div class="recipe-result">
+            <span class="result-emoji">💥</span>
+            <span class="result-label">Mess!</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity: Paper Airplane -->
+      <div class="activity-box">
+        <h3><span class="icon">✈️</span> Your Turn</h3>
+        <p class="activity-desc">These steps make a paper airplane. They are <strong>SCRAMBLED</strong>. Click the steps in the correct order (1 → 4).</p>
+
+        <div class="order-list" id="p2-orderList">
+          <button class="order-item" data-step="0" onclick="p2_selectStep(0)">
+            <span class="order-num">?</span>
+            <span class="order-text">Fold the paper in half lengthwise</span>
+          </button>
+          <button class="order-item" data-step="1" onclick="p2_selectStep(1)">
+            <span class="order-num">?</span>
+            <span class="order-text">Fold the top corners to the center</span>
+          </button>
+          <button class="order-item" data-step="2" onclick="p2_selectStep(2)">
+            <span class="order-num">?</span>
+            <span class="order-text">Fold the wings down</span>
+          </button>
+          <button class="order-item" data-step="3" onclick="p2_selectStep(3)">
+            <span class="order-num">?</span>
+            <span class="order-text">Open the paper flat</span>
+          </button>
+        </div>
+
+        <div class="order-feedback" id="p2-feedback"></div>
+
+        <div class="toolbar">
+          <button class="btn btn-secondary" onclick="p2_resetOrder()">↺ Reset</button>
+          <button class="btn btn-primary" onclick="p2_checkOrder()">✓ Check Order</button>
+          <button class="btn btn-danger" onclick="p2_showAnswer()">👁 Reveal Answer</button>
+        </div>
+      </div>
+
+      <!-- Reflection -->
+      <div class="form-section">
+        <h3><span class="icon">✏️</span> Draw It: Try making the airplane with your numbered steps. Did it fly?</h3>
+        <div class="radio-group">
+          <label class="radio-item" onclick="p2_selectRadio(this)">
+            <input type="radio" name="p2-fly" value="yes">
+            <span>YES</span>
+          </label>
+          <label class="radio-item" onclick="p2_selectRadio(this)">
+            <input type="radio" name="p2-fly" value="no">
+            <span>NO</span>
+          </label>
+        </div>
+
+        <h3 style="margin-top:1.25rem;"><span class="icon">🔍</span> If NO, which step was wrong?</h3>
+        <div class="input-row">
+          <input type="text" id="p2-wrongStep" placeholder="Describe which step...">
+        </div>
+      </div>
+
+      <div class="hint-box">
+        <h4>💡 Remember</h4>
+        <p>
+          Computers never "figure out" what you meant.<br>
+          They execute commands exactly as written, in exact sequence.
+        </p>
+      </div>
+
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(1)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(3)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 3 ==================== -->
+    <section class="page" id="page-3">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Draw By Numbers</h1>
+      <p class="subtitle">Give these steps to a friend. Do not say what you are making. See if they draw the same thing.</p>
+
+      <!-- Secret Steps -->
+      <div class="form-section">
+        <h3><span class="icon">🔒</span> My Secret Drawing — Write your steps below</h3>
+        <div class="step-inputs">
+          <div class="step-input-row">
+            <span class="step-input-num">1</span>
+            <input type="text" id="p3-s1" placeholder="Step 1: e.g. Draw a dot in the center...">
+          </div>
+          <div class="step-input-row">
+            <span class="step-input-num">2</span>
+            <input type="text" id="p3-s2" placeholder="Step 2: e.g. Draw a line 4 cm up...">
+          </div>
+          <div class="step-input-row">
+            <span class="step-input-num">3</span>
+            <input type="text" id="p3-s3" placeholder="Step 3">
+          </div>
+          <div class="step-input-row">
+            <span class="step-input-num">4</span>
+            <input type="text" id="p3-s4" placeholder="Step 4">
+          </div>
+          <div class="step-input-row">
+            <span class="step-input-num">5</span>
+            <input type="text" id="p3-s5" placeholder="Step 5">
+          </div>
+        </div>
+        <div class="toolbar" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="p3_lockSteps()">🔒 Lock Steps</button>
+          <button class="btn btn-secondary" onclick="p3_clearSteps()">↺ Clear All</button>
+        </div>
+        <div class="lock-message" id="p3-lockMsg"></div>
+      </div>
+
+      <!-- Dual Drawing Area -->
+      <div class="dual-canvas-section">
+        <div class="canvas-panel">
+          <div class="canvas-label">My Drawing — 5 in × 3 in</div>
+          <div class="canvas-wrap wide">
+            <canvas id="p3-myCanvas" width="480" height="288"></canvas>
+          </div>
+          <div class="canvas-hint">Draw your secret shape here.</div>
+          <div class="toolbar">
+            <button class="btn btn-danger" onclick="p3_clearMyCanvas()">✕ Clear</button>
+          </div>
+        </div>
+
+        <div class="canvas-divider">➡️</div>
+
+        <div class="canvas-panel">
+          <div class="canvas-label">Friend's Drawing — 5 in × 3 in</div>
+          <div class="canvas-wrap wide">
+            <canvas id="p3-friendCanvas" width="480" height="288"></canvas>
+          </div>
+          <div class="canvas-hint">Pass the steps to a friend. They draw here.</div>
+          <div class="toolbar">
+            <button class="btn btn-danger" onclick="p3_clearFriendCanvas()">✕ Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reflection -->
+      <div class="form-section">
+        <h3><span class="icon">🎯</span> Did it match your idea?</h3>
+        <div class="radio-group">
+          <label class="radio-item" onclick="p3_selectRadio(this)">
+            <input type="radio" name="p3-match" value="yes">
+            <span>YES</span>
+          </label>
+          <label class="radio-item" onclick="p3_selectRadio(this)">
+            <input type="radio" name="p3-match" value="no">
+            <span>NO</span>
+          </label>
+        </div>
+
+        <h3 style="margin-top:1.25rem;"><span class="icon">🔍</span> If NO, what was confusing?</h3>
+        <div class="input-row">
+          <textarea id="p3-confusing" rows="3" placeholder="Describe what confused your friend..."></textarea>
+        </div>
+      </div>
+
+      <div class="hint-box">
+        <h4>💡 Hint</h4>
+        <p>
+          Computers need EVERY detail.<br>
+          <code>"Draw a circle"</code> is not enough.<br>
+          <code>"Draw a circle, 2 cm wide, in the center"</code> is better.
+        </p>
+      </div>
+
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(2)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(4)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 4 ==================== -->
+    <section class="page" id="page-4">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>True or False</h1>
+      <p class="subtitle">Computers make decisions by asking YES/NO questions. We call the answer TRUE or FALSE.</p>
+
+      <!-- Warm-Up -->
+      <div class="form-section">
+        <h3><span class="icon">🔥</span> Warm-Up: Circle TRUE or FALSE for each</h3>
+        <div class="tf-list" id="p4-warmup">
+          <div class="tf-item" data-q="1" data-answer="true">
+            <span class="tf-qnum">1</span>
+            <span class="tf-text">A triangle has 3 sides</span>
+            <div class="tf-options">
+              <button class="tf-btn" onclick="p4_pick(this, 'true')">TRUE</button>
+              <button class="tf-btn" onclick="p4_pick(this, 'false')">FALSE</button>
+            </div>
+          </div>
+          <div class="tf-item" data-q="2" data-answer="false">
+            <span class="tf-qnum">2</span>
+            <span class="tf-text">Ice cream is hot</span>
+            <div class="tf-options">
+              <button class="tf-btn" onclick="p4_pick(this, 'true')">TRUE</button>
+              <button class="tf-btn" onclick="p4_pick(this, 'false')">FALSE</button>
+            </div>
+          </div>
+          <div class="tf-item" data-q="3" data-answer="true">
+            <span class="tf-qnum">3</span>
+            <span class="tf-text">10 is bigger than 7</span>
+            <div class="tf-options">
+              <button class="tf-btn" onclick="p4_pick(this, 'true')">TRUE</button>
+              <button class="tf-btn" onclick="p4_pick(this, 'false')">FALSE</button>
+            </div>
+          </div>
+          <div class="tf-item" data-q="4" data-answer="false">
+            <span class="tf-qnum">4</span>
+            <span class="tf-text">Dogs can fly</span>
+            <div class="tf-options">
+              <button class="tf-btn" onclick="p4_pick(this, 'true')">TRUE</button>
+              <button class="tf-btn" onclick="p4_pick(this, 'false')">FALSE</button>
+            </div>
+          </div>
+          <div class="tf-item" data-q="5" data-answer="true">
+            <span class="tf-qnum">5</span>
+            <span class="tf-text">Your name has letters in it</span>
+            <div class="tf-options">
+              <button class="tf-btn" onclick="p4_pick(this, 'true')">TRUE</button>
+              <button class="tf-btn" onclick="p4_pick(this, 'false')">FALSE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tricky Ones -->
+      <div class="form-section tricky">
+        <h3><span class="icon">🎭</span> Tricky Ones: These depend on RIGHT NOW</h3>
+        <div class="tf-list" id="p4-tricky">
+          <div class="tf-item subjective" data-q="6">
+            <span class="tf-qnum">6</span>
+            <span class="tf-text">I am wearing socks</span>
+            <div class="tf-options">
+              <button class="tf-btn" onclick="p4_pick(this, 'true')">TRUE</button>
+              <button class="tf-btn" onclick="p4_pick(this, 'false')">FALSE</button>
+            </div>
+          </div>
+          <div class="tf-item subjective" data-q="7">
+            <span class="tf-qnum">7</span>
+            <span class="tf-text">It is nighttime</span>
+            <div class="tf-options">
+              <button class="tf-btn" onclick="p4_pick(this, 'true')">TRUE</button>
+              <button class="tf-btn" onclick="p4_pick(this, 'false')">FALSE</button>
+            </div>
+          </div>
+          <div class="tf-item subjective" data-q="8">
+            <span class="tf-qnum">8</span>
+            <span class="tf-text">I have eaten breakfast today</span>
+            <div class="tf-options">
+              <button class="tf-btn" onclick="p4_pick(this, 'true')">TRUE</button>
+              <button class="tf-btn" onclick="p4_pick(this, 'false')">FALSE</button>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:1.5rem;"><span class="icon">🤔</span> Why are 6-8 different?</h3>
+        <div class="input-row">
+          <textarea id="p4-why" rows="3" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="toolbar" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="p4_check()">✓ Check Warm-Up</button>
+          <button class="btn btn-secondary" onclick="p4_reset()">↺ Reset All</button>
+          <button class="btn btn-danger" onclick="p4_reveal()">👁 Reveal Answer</button>
+        </div>
+
+        <div class="reveal-box" id="p4-revealBox" style="display:none;">
+          <p><strong>Answer:</strong> The answer CHANGES based on when you ask! Computers need to check every time.</p>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(3)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(5)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 5 ==================== -->
+    <section class="page" id="page-5">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>If This, Then That</h1>
+      <p class="subtitle">Computers make decisions using IF and ELSE.</p>
+
+      <!-- Live Simulator -->
+      <div class="simulator-box">
+        <h3><span class="icon">⚡</span> Try It Live</h3>
+        <div class="sim-code">
+          <div class="code-line"><span class="kw">IF</span> it is raining</div>
+          <div class="code-line indent"><span class="kw">THEN</span> take an umbrella</div>
+          <div class="code-line"><span class="kw">ELSE</span></div>
+          <div class="code-line indent">wear sunglasses</div>
+        </div>
+        <div class="sim-controls">
+          <span class="sim-label">Is it raining?</span>
+          <button class="sim-toggle" id="p5-rainToggle" onclick="p5_toggleRain()">NO ❌</button>
+        </div>
+        <div class="sim-result" id="p5-simResult">
+          <span class="sim-output">wear sunglasses</span>
+        </div>
+      </div>
+
+      <!-- Example -->
+      <div class="code-example">
+        <div class="code-header">Real code looks like this:</div>
+        <pre class="code-block">
+<span class="kw">IF</span> it is raining
+   <span class="kw">THEN</span> take an umbrella
+<span class="kw">ELSE</span>
+   wear sunglasses</pre>
+      </div>
+
+      <!-- Fill in the blanks -->
+      <div class="form-section code-form">
+        <h3><span class="icon">✏️</span> Fill in the blanks</h3>
+
+        <div class="code-exercise">
+          <div class="code-line"><span class="kw">IF</span> it is bedtime</div>
+          <div class="code-line indent"><span class="kw">THEN</span> <input type="text" class="code-input" id="p5-e1-then" placeholder="type here..."></div>
+          <div class="code-line"><span class="kw">ELSE</span> <input type="text" class="code-input" id="p5-e1-else" placeholder="type here..."></div>
+        </div>
+
+        <div class="code-exercise">
+          <div class="code-line"><span class="kw">IF</span> the light is red</div>
+          <div class="code-line indent"><span class="kw">THEN</span> <input type="text" class="code-input" id="p5-e2-then" placeholder="type here..."></div>
+          <div class="code-line"><span class="kw">ELSE</span> <input type="text" class="code-input" id="p5-e2-else" placeholder="type here..."></div>
+        </div>
+
+        <div class="code-exercise">
+          <div class="code-line"><span class="kw">IF</span> my homework is done</div>
+          <div class="code-line indent"><span class="kw">THEN</span> <input type="text" class="code-input" id="p5-e3-then" placeholder="type here..."></div>
+          <div class="code-line"><span class="kw">ELSE</span> <input type="text" class="code-input" id="p5-e3-else" placeholder="type here..."></div>
+        </div>
+      </div>
+
+      <!-- Draw Your Own -->
+      <div class="form-section code-form">
+        <h3><span class="icon">🎨</span> Now draw your own</h3>
+        <div class="code-exercise big">
+          <div class="code-line"><span class="kw">IF</span> <input type="text" class="code-input wide" id="p5-my-if" placeholder="your condition..."></div>
+          <div class="code-line indent"><span class="kw">THEN</span> <input type="text" class="code-input wide" id="p5-my-then" placeholder="what happens..."></div>
+          <div class="code-line"><span class="kw">ELSE</span></div>
+          <div class="code-line indent"><input type="text" class="code-input wide" id="p5-my-else" placeholder="what happens instead..."></div>
+        </div>
+      </div>
+
+      <!-- Challenge -->
+      <div class="form-section challenge-box">
+        <h3><span class="icon">🏆</span> Challenge: What if there are THREE choices?</h3>
+        <div class="code-example flat">
+          <pre class="code-block">
+<span class="kw">IF</span> it is breakfast time → eat cereal
+<span class="kw">IF</span> it is lunch time     → eat sandwich
+<span class="kw">IF</span> it is dinner time    → eat pasta</pre>
+        </div>
+        <p class="activity-desc">How would you write this? Try below.</p>
+        <div class="input-row">
+          <textarea id="p5-challenge" rows="4" placeholder="Write your three-choice IF code here..."></textarea>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(4)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(6)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 6 ==================== -->
+    <section class="page" id="page-6">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>YES/NO Maze</h1>
+      <p class="subtitle">Start at the star. Follow the TRUE/FALSE paths. Which animal do you reach?</p>
+
+      <!-- Maze Journey -->
+      <div class="maze-container" id="p6-maze">
+
+        <!-- Start -->
+        <div class="maze-node start" id="p6-start">
+          <span class="maze-star">★</span>
+          <span class="maze-label">START</span>
+        </div>
+
+        <!-- Q1: Warm? -->
+        <div class="maze-path" id="p6-path1"></div>
+        <div class="maze-question" id="p6-q1">
+          <div class="maze-qcard">
+            <span class="maze-qtext">Is it warm?</span>
+            <div class="maze-buttons">
+              <button class="maze-btn yes" onclick="p6_answer(1, true)">YES</button>
+              <button class="maze-btn no" onclick="p6_answer(1, false)">NO</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2a: Fur? (warm=yes) -->
+        <div class="maze-path" id="p6-path2a"></div>
+        <div class="maze-question" id="p6-q2a">
+          <div class="maze-qcard">
+            <span class="maze-qtext">Has fur?</span>
+            <div class="maze-buttons">
+              <button class="maze-btn yes" onclick="p6_answer(2, true, 'a')">YES</button>
+              <button class="maze-btn no" onclick="p6_answer(2, false, 'a')">NO</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2b: Cold? (warm=no) -->
+        <div class="maze-path" id="p6-path2b"></div>
+        <div class="maze-question" id="p6-q2b">
+          <div class="maze-qcard">
+            <span class="maze-qtext">Is it cold?</span>
+            <div class="maze-buttons">
+              <button class="maze-btn yes" onclick="p6_answer(2, true, 'b')">YES</button>
+              <button class="maze-btn no" onclick="p6_answer(2, false, 'b')">NO</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3a: Scales? (warm→fur=no) -->
+        <div class="maze-path" id="p6-path3a"></div>
+        <div class="maze-question" id="p6-q3a">
+          <div class="maze-qcard">
+            <span class="maze-qtext">Has scales?</span>
+            <div class="maze-buttons">
+              <button class="maze-btn yes" onclick="p6_answer(3, true, 'a')">YES</button>
+              <button class="maze-btn no" onclick="p6_answer(3, false, 'a')">NO</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3b: Fur? (cold→cold=yes) -->
+        <div class="maze-path" id="p6-path3b"></div>
+        <div class="maze-question" id="p6-q3b">
+          <div class="maze-qcard">
+            <span class="maze-qtext">Has fur?</span>
+            <div class="maze-buttons">
+              <button class="maze-btn yes" onclick="p6_answer(3, true, 'b')">YES</button>
+              <button class="maze-btn no" onclick="p6_answer(3, false, 'b')">NO</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3c: Feathers? (cold→cold→fur=no) -->
+        <div class="maze-path" id="p6-path3c"></div>
+        <div class="maze-question" id="p6-q3c">
+          <div class="maze-qcard">
+            <span class="maze-qtext">Has feathers?</span>
+            <div class="maze-buttons">
+              <button class="maze-btn yes" onclick="p6_answer(3, true, 'c')">YES</button>
+              <button class="maze-btn no" onclick="p6_answer(3, false, 'c')">NO</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="maze-path" id="p6-pathEnd"></div>
+        <div class="maze-result" id="p6-result">
+          <div class="animal-card" id="p6-animal">
+            <span class="animal-emoji" id="p6-emoji">❓</span>
+            <span class="animal-name" id="p6-animalName">???</span>
+          </div>
+        </div>
+
+        <div class="maze-retry" id="p6-retry" style="display:none;">
+          <button class="btn btn-primary" onclick="p6_reset()">🔄 Try Again</button>
+        </div>
+      </div>
+
+      <!-- Reflection -->
+      <div class="form-section">
+        <h3><span class="icon">🎯</span> What did you get?</h3>
+        <div class="input-row">
+          <input type="text" id="p6-got" placeholder="Type the animal you reached...">
+        </div>
+
+        <h3 style="margin-top:1.25rem;"><span class="icon">🔄</span> Try again with different answers. Did it change?</h3>
+        <div class="radio-group">
+          <label class="radio-item" onclick="p6_selectRadio(this)">
+            <input type="radio" name="p6-change" value="yes">
+            <span>YES</span>
+          </label>
+          <label class="radio-item" onclick="p6_selectRadio(this)">
+            <input type="radio" name="p6-change" value="no">
+            <span>NO</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="hint-box">
+        <h4>💡 Think About It</h4>
+        <p>
+          Every YES/NO answer sends you down a different path.<br>
+          Change one answer → reach a different animal.<br>
+          Computers do exactly the same thing with TRUE and FALSE!
+        </p>
+      </div>
+
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(5)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(7)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 7 ==================== -->
+    <section class="page" id="page-7">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Decision Tree</h1>
+      <p class="subtitle">A decision tree is just a bunch of IF/THEN questions stacked together.</p>
+
+      <!-- Color Tree Example -->
+      <div class="tree-box" id="p7-colorTree">
+        <h3><span class="icon">🎨</span> Use this tree to guess a friend's favorite color</h3>
+
+        <!-- Q1 -->
+        <div class="tree-level">
+          <div class="tree-card root" id="p7-q1">
+            <span class="tree-label">Question 1</span>
+            <span class="tree-q">Is it a warm color (red, orange, yellow)?</span>
+            <div class="tree-buttons">
+              <button class="tree-btn yes" onclick="p7_q1(true)">YES →</button>
+              <button class="tree-btn no" onclick="p7_q1(false)">NO →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branches -->
+        <div class="tree-branches" id="p7-branches">
+          <div class="tree-branch" id="p7-branch-yes">
+            <div class="tree-connector"></div>
+            <div class="tree-card" id="p7-q2">
+              <span class="tree-label">Question 2</span>
+              <span class="tree-q">Is it the color of fire?</span>
+              <div class="tree-buttons">
+                <button class="tree-btn yes" onclick="p7_q2(true)">YES →</button>
+                <button class="tree-btn no" onclick="p7_q2(false)">NO →</button>
+              </div>
+            </div>
+          </div>
+          <div class="tree-branch" id="p7-branch-no">
+            <div class="tree-connector"></div>
+            <div class="tree-card" id="p7-q3">
+              <span class="tree-label">Question 3</span>
+              <span class="tree-q">Is it the color of the sky?</span>
+              <div class="tree-buttons">
+                <button class="tree-btn yes" onclick="p7_q3(true)">YES →</button>
+                <button class="tree-btn no" onclick="p7_q3(false)">NO →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="tree-results" id="p7-results">
+          <div class="color-result" id="p7-red">
+            <span class="color-swatch" style="background:#ef4444;"></span>
+            <span class="color-name">RED</span>
+          </div>
+          <div class="color-result" id="p7-orange">
+            <span class="color-swatch" style="background:#f97316;"></span>
+            <span class="color-name">ORANGE</span>
+          </div>
+          <div class="color-result" id="p7-blue">
+            <span class="color-swatch" style="background:#3b82f6;"></span>
+            <span class="color-name">BLUE</span>
+          </div>
+          <div class="color-result" id="p7-green">
+            <span class="color-swatch" style="background:#22c55e;"></span>
+            <span class="color-name">GREEN</span>
+          </div>
+        </div>
+
+        <div class="toolbar" style="margin-top:1rem;">
+          <button class="btn btn-secondary" onclick="p7_resetColor()">↺ Reset Tree</button>
+        </div>
+      </div>
+
+      <!-- Did it work? -->
+      <div class="form-section">
+        <h3><span class="icon">🎯</span> Did it work?</h3>
+        <div class="radio-group">
+          <label class="radio-item" onclick="p7_selectRadio(this)">
+            <input type="radio" name="p7-work" value="yes">
+            <span>YES</span>
+          </label>
+          <label class="radio-item" onclick="p7_selectRadio(this)">
+            <input type="radio" name="p7-work" value="no">
+            <span>NO</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Build Your Own -->
+      <div class="form-section build-tree">
+        <h3><span class="icon">🏗️</span> Build Your Own: Guess a favorite animal</h3>
+
+        <div class="build-level">
+          <div class="build-card root">
+            <span class="build-label">Question 1</span>
+            <input type="text" class="build-input" id="p7-bq1" placeholder="e.g. Does it live in water?">
+          </div>
+        </div>
+
+        <div class="build-branches">
+          <div class="build-branch">
+            <div class="build-connector yes">YES →</div>
+            <input type="text" class="build-input path" id="p7-bq1-yes" placeholder="Go to Question 2A...">
+          </div>
+          <div class="build-branch">
+            <div class="build-connector no">NO →</div>
+            <input type="text" class="build-input path" id="p7-bq1-no" placeholder="Go to Question 2B...">
+          </div>
+        </div>
+
+        <div class="build-level">
+          <div class="build-card">
+            <span class="build-label">Question 2A</span>
+            <input type="text" class="build-input" id="p7-bq2a" placeholder="e.g. Is it bigger than a dog?">
+          </div>
+          <div class="build-card">
+            <span class="build-label">Question 2B</span>
+            <input type="text" class="build-input" id="p7-bq2b" placeholder="e.g. Can it fly?">
+          </div>
+        </div>
+
+        <div class="build-results-grid">
+          <div class="build-result">
+            <span class="build-res-label">2A YES →</span>
+            <input type="text" class="build-input" id="p7-bq2a-yes" placeholder="Animal...">
+          </div>
+          <div class="build-result">
+            <span class="build-res-label">2A NO →</span>
+            <input type="text" class="build-input" id="p7-bq2a-no" placeholder="Animal...">
+          </div>
+          <div class="build-result">
+            <span class="build-res-label">2B YES →</span>
+            <input type="text" class="build-input" id="p7-bq2b-yes" placeholder="Animal...">
+          </div>
+          <div class="build-result">
+            <span class="build-res-label">2B NO →</span>
+            <input type="text" class="build-input" id="p7-bq2b-no" placeholder="Animal...">
+          </div>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(6)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(8)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 8 ==================== -->
+    <section class="page" id="page-8">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 8 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(7)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(9)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 9 ==================== -->
+    <section class="page" id="page-9">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 9 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(8)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(10)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 10 ==================== -->
+    <section class="page" id="page-10">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 10 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(9)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(11)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 11 ==================== -->
+    <section class="page" id="page-11">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 11 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(10)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(12)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 12 ==================== -->
+    <section class="page" id="page-12">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 12 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(11)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(13)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 13 ==================== -->
+    <section class="page" id="page-13">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 13 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(12)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(14)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 14 ==================== -->
+    <section class="page" id="page-14">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 14 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(13)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(15)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 15 ==================== -->
+    <section class="page" id="page-15">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 15 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(14)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(16)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 16 ==================== -->
+    <section class="page" id="page-16">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 16 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(15)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(17)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 17 ==================== -->
+    <section class="page" id="page-17">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 17 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(16)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(18)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 18 ==================== -->
+    <section class="page" id="page-18">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 18 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(17)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(19)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 19 ==================== -->
+    <section class="page" id="page-19">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 19 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(18)">← Prev</button>
+        <button class="btn btn-primary" onclick="goToPage(20)">Next →</button>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 20 ==================== -->
+    <section class="page" id="page-20">
+      <span class="badge">Code Thinker: Level 1</span>
+      <h1>Coming Soon</h1>
+      <p class="subtitle">Page 20 prompt pending.</p>
+      <div class="page-nav">
+        <button class="btn btn-secondary" onclick="goToPage(19)">← Prev</button>
+        <span></span>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
